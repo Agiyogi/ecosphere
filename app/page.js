@@ -1,122 +1,70 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const concepts = [
-  {
-    name: "Yin & Yang",
-    description:
-      "Balances energy consumption and production, aiming to harmonize peak usage with peak production times.",
-  },
-  {
-    name: "Interconnectedness",
-    description:
-      "Recognizes that all parts of the utility system are linked, with changes in one area affecting others.",
-  },
-  {
-    name: "Regenerative Cultures",
-    description:
-      "Designs the system to meet current needs while regenerating resources, like using waste heat for local agriculture.",
-  },
-  {
-    name: "Personal Responsibility",
-    description:
-      "Encourages active community participation in energy management with real-time usage feedback.",
-  },
-  {
-    name: "Diversity",
-    description:
-      "Incorporates various energy sources to increase system resilience and adaptability.",
-  },
-  {
-    name: "Natural Economic Order",
-    description:
-      "Implements a local energy trading system for community members to exchange excess energy.",
-  },
-  {
-    name: "Complementarity",
-    description:
-      "Designs the system to leverage complementary energy sources, optimizing for different conditions.",
-  },
-  {
-    name: "Theory of Colors",
-    description:
-      "Uses color-coded interfaces to make energy data more intuitive and accessible.",
-  },
-  {
-    name: "Solution Language",
-    description:
-      "Frames energy challenges positively, focusing on optimization rather than reduction.",
-  },
-  {
-    name: "Inner Fulfillment",
-    description:
-      "Designs the system to contribute to the communitys sense of purpose and achievement.",
-  },
+  "Yin & Yang",
+  "Interconnectedness",
+  "Regenerative Cultures",
+  "Personal Responsibility",
+  "Diversity",
+  "Natural Economic Order",
+  "Complementarity",
+  "Theory of Colors",
+  "Solution Language",
+  "Inner Fulfillment",
 ];
 
-const Cloud = ({ concept, isHovered, onHover, onLeave }) => {
-  return (
-    <Link href="/ai-system-design" passHref>
-      <motion.div
-        className="bg-white bg-opacity-70 rounded-full shadow-lg cursor-pointer text-center backdrop-blur-sm p-4"
-        whileHover={{ scale: 1.1 }}
-        onMouseEnter={() => onHover(concept)}
-        onMouseLeave={onLeave}
-      >
-        <span className="text-sm sm:text-base md:text-lg text-blue-800">
-          {concept.name}
-        </span>
-      </motion.div>
-    </Link>
-  );
-};
+const Concept = ({ name }) => (
+  <motion.div
+    className="bg-white bg-opacity-70 rounded-lg shadow-md p-4 text-center"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <h3 className="text-lg font-semibold text-blue-800">{name}</h3>
+  </motion.div>
+);
 
-const Description = ({ concept }) => {
-  return (
+const AISystemDesignLink = () => (
+  <Link href="/ai-system-design" passHref>
     <motion.div
-      className="fixed bottom-0 left-0 right-0 bg-white bg-opacity-80 p-4 shadow-lg backdrop-blur-sm"
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: 100, opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      className="bg-blue-500 text-white rounded-full shadow-lg p-6 text-center cursor-pointer"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
     >
-      <h2 className="text-xl font-bold mb-2 text-blue-800">{concept.name}</h2>
-      <p className="text-sm sm:text-base text-blue-700">
-        {concept.description}
-      </p>
+      <h2 className="text-xl font-bold mb-2">AI System Design</h2>
+      <p className="text-sm">Explore our advanced AI-driven utility system</p>
     </motion.div>
-  );
-};
+  </Link>
+);
 
 export default function Home() {
-  const [hoveredConcept, setHoveredConcept] = useState(null);
-
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-100 via-green-100 to-blue-100 p-8">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 text-blue-800">
+    <main className="min-h-screen bg-gradient-to-b from-blue-100 via-green-100 to-blue-100 p-4 sm:p-8">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 text-blue-800">
         EcoSphere Harmony
       </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-12">
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8">
         {concepts.map((concept, index) => (
-          <Cloud
-            key={index}
-            concept={concept}
-            isHovered={hoveredConcept === concept}
-            onHover={setHoveredConcept}
-            onLeave={() => setHoveredConcept(null)}
-          />
+          <Concept key={index} name={concept} />
         ))}
       </div>
-      <p className="text-center text-lg text-blue-800">
-        Explore our AI-driven dynamic utility system optimizing community
-        welfare
-      </p>
-      <AnimatePresence>
-        {hoveredConcept && <Description concept={hoveredConcept} />}
-      </AnimatePresence>
+
+      <div className="flex justify-center space-x-4">
+        <AISystemDesignLink />
+        <Link href="/concepts" passHref>
+          <motion.div
+            className="bg-green-500 text-white rounded-full shadow-lg p-6 text-center cursor-pointer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <h2 className="text-xl font-bold mb-2">Concepts Explained</h2>
+            <p className="text-sm">Learn more about our guiding principles</p>
+          </motion.div>
+        </Link>
+      </div>
     </main>
   );
 }
