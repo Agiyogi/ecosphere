@@ -24,7 +24,7 @@ export default function Home() {
         <p className="mb-6">
           We believe in a future where our children can live in zero-cost
           settlements, embracing ecosphere harmony and sustainable prosperity.
-          Through the power of AI and community collaboration, we're reshaping
+          Through the power of AI and community collaboration, we are reshaping
           resource allocation and energy management.
         </p>
         <p className="mb-6">
