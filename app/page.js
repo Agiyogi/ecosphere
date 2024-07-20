@@ -3,68 +3,70 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const concepts = [
-  "Yin & Yang",
-  "Interconnectedness",
-  "Regenerative Cultures",
-  "Personal Responsibility",
-  "Diversity",
-  "Natural Economic Order",
-  "Complementarity",
-  "Theory of Colors",
-  "Solution Language",
-  "Inner Fulfillment",
-];
-
-const Concept = ({ name }) => (
-  <motion.div
-    className="bg-white bg-opacity-70 rounded-lg shadow-md p-4 text-center"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <h3 className="text-lg font-semibold text-blue-800">{name}</h3>
-  </motion.div>
-);
-
-const AISystemDesignLink = () => (
-  <Link href="/ai-system-design" passHref>
-    <motion.div
-      className="bg-blue-500 text-white rounded-full shadow-lg p-6 text-center cursor-pointer"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-    >
-      <h2 className="text-xl font-bold mb-2">AI System Design</h2>
-      <p className="text-sm">Explore our advanced AI-driven utility system</p>
-    </motion.div>
-  </Link>
-);
-
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-100 via-green-100 to-blue-100 p-4 sm:p-8">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 text-blue-800">
-        EcoSphere Harmony
-      </h1>
+    <main className="min-h-screen bg-gradient-to-b from-blue-100 via-green-100 to-blue-100 p-8 sm:p-12 md:p-16 flex flex-col justify-center items-center">
+      <motion.h1
+        className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 text-blue-800"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Halbwild
+      </motion.h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8">
-        {concepts.map((concept, index) => (
-          <Concept key={index} name={concept} />
-        ))}
-      </div>
+      <motion.div
+        className="text-lg sm:text-xl md:text-2xl text-center mb-16 max-w-3xl leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <p className="mb-6">
+          We believe in a future where our children can live in zero-cost
+          settlements, embracing ecosphere harmony and sustainable prosperity.
+          Through the power of AI and community collaboration, we're reshaping
+          resource allocation and energy management.
+        </p>
+        <p className="mb-6">
+          Our vision is to create a world where technology serves the greater
+          good, where AI systems work tirelessly to optimize resource usage,
+          reduce waste, and foster a symbiotic relationship between humanity and
+          nature.
+        </p>
+        <p>
+          Join us in building smart, sustainable communities that leverage
+          cutting-edge AI for the benefit of all. Together, we can create a
+          future where economic freedom and environmental stewardship go hand in
+          hand, paving the way for generations to thrive in balance with our
+          planet.
+        </p>
+      </motion.div>
 
-      <div className="flex justify-center space-x-4">
-        <AISystemDesignLink />
-        <Link href="/concepts" passHref>
+      <motion.div
+        className="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <Link href="/ai-system-design" passHref>
           <motion.div
-            className="bg-green-500 text-white rounded-full shadow-lg p-6 text-center cursor-pointer"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            className="bg-blue-500 text-white rounded-full shadow-lg px-8 py-4 text-center cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <h2 className="text-xl font-bold mb-2">Concepts Explained</h2>
-            <p className="text-sm">Learn more about our guiding principles</p>
+            <h2 className="text-xl font-bold">AI System</h2>
           </motion.div>
         </Link>
-      </div>
+        <Link href="/concepts" passHref>
+          <motion.div
+            className="bg-green-500 text-white rounded-full shadow-lg px-8 py-4 text-center cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <h2 className="text-xl font-bold">Core Principles</h2>
+          </motion.div>
+        </Link>
+      </motion.div>
     </main>
   );
 }
