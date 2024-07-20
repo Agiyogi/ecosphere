@@ -8,24 +8,24 @@ const AISystemDesign = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
   const tabs = [
-    { id: "overview", label: "System Overview" },
+    { id: "overview", label: "Overview" },
     { id: "agents", label: "AI Agents" },
-    { id: "interfaces", label: "Intelligent Interfaces" },
-    { id: "integration", label: "Real-World Integration" },
+    { id: "interfaces", label: "Interfaces" },
+    { id: "integration", label: "Integration" },
   ];
 
   const content = {
     overview: (
       <>
         <h2 className="text-2xl font-bold mb-4 text-blue-800">
-          EcoSphere Harmony: AI-Driven Utility System
+          Halbwild: AI-Driven Utility System
         </h2>
         <p className="mb-4">
-          EcoSphere Harmony is an advanced AI-driven utility system that
-          optimizes community welfare and environmental sustainability. It
-          integrates multiple AI technologies, including multi-agent systems,
-          machine learning, and natural language processing, to create a
-          holistic approach to energy management.
+          Halbwild is an advanced AI-driven utility system that optimizes
+          community welfare and environmental sustainability. It integrates
+          multiple AI technologies, including multi-agent systems, machine
+          learning, and natural language processing, to create a holistic
+          approach to energy management.
         </p>
         <p>
           The system is built on the principles of Yin & Yang (balance),
@@ -41,8 +41,8 @@ const AISystemDesign = () => {
           AI Agent System
         </h2>
         <p className="mb-4">
-          EcoSphere Harmony employs a multi-agent AI system, where different AI
-          agents are responsible for specific tasks:
+          Halbwild employs a multi-agent AI system, where different AI agents
+          are responsible for specific tasks:
         </p>
         <ul className="list-disc pl-6 space-y-2 mb-4">
           <li>
@@ -76,8 +76,8 @@ const AISystemDesign = () => {
           Intelligent Interfaces
         </h2>
         <p className="mb-4">
-          EcoSphere Harmony features adaptive, intelligent interfaces for
-          various stakeholders:
+          Halbwild features adaptive, intelligent interfaces for various
+          stakeholders:
         </p>
         <ul className="list-disc pl-6 space-y-2 mb-4">
           <li>
@@ -111,7 +111,7 @@ const AISystemDesign = () => {
           Real-World System Integration
         </h2>
         <p className="mb-4">
-          EcoSphere Harmony integrates with real-world utility systems through:
+          Halbwild integrates with real-world utility systems through:
         </p>
         <ul className="list-disc pl-6 space-y-2 mb-4">
           <li>
@@ -142,20 +142,20 @@ const AISystemDesign = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-green-100 to-blue-100 p-8">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-green-100 to-blue-100 p-4 sm:p-8">
       <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 text-blue-800"
+        className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 text-blue-800"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        EcoSphere Harmony: Advanced AI System Design
+        Halbwild: Advanced AI System Design
       </motion.h1>
-      <div className="flex mb-8 justify-center">
+      <div className="flex flex-wrap justify-center mb-8">
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            className={`px-4 py-2 mx-2 rounded-full ${
+            className={`px-4 py-2 m-2 rounded-full ${
               activeTab === tab.id
                 ? "bg-blue-500 text-white"
                 : "bg-white text-blue-500"
@@ -180,11 +180,10 @@ const AISystemDesign = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <Link
-          href="/"
-          className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors"
-        >
-          Back to Home
+        <Link href="/">
+          <span className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors inline-block">
+            Back to Home
+          </span>
         </Link>
       </motion.div>
     </div>
