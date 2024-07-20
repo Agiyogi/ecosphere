@@ -30,7 +30,7 @@ const AISystemDesign = () => {
         <p>
           The system is built on the principles of Yin & Yang (balance),
           Interconnectedness, Regenerative Cultures, and other concepts
-          introduced earlier. These principles guide the AI's decision-making
+          introduced earlier. These principles guide the AI decision-making
           processes and system architecture.
         </p>
       </>
